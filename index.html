@@ -13,11 +13,6 @@
       margin: 0;
       padding: 20px;
     }
-    .logo {
-      width: 100px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
     h1 {
       font-size: 26px;
       color: #000;
@@ -43,9 +38,6 @@
     }
     .android {
       background-color: green;
-    }
-    .iphone {
-      background-color: #007bff;
     }
     .comment {
       background: white;
@@ -76,23 +68,21 @@
   <div class="viewers">🔥 1061 people viewing now</div>
   <div class="countdown">⏰ Offer expires in: <span id="timer">05:00</span></div>
 
+  <!-- ✅ Android CTA button -->
   <a href="#" class="button android">🎁 Claim on Android</a>
-  <a href="https://singingfiles.com/show.php?l=0&u=1159972&id=68777" class="button iphone">🎉 Claim on iPhone</a>
 
-  <!-- ✅ JavaScript for clickid tracking -->
+  <!-- ✅ JS to attach clickid -->
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const clickid = urlParams.get('clickid');
+    const params = new URLSearchParams(window.location.search);
+    const clickid = params.get('clickid');
     const androidBtn = document.querySelector('.button.android');
-    if (clickid && androidBtn) {
+    if (androidBtn && clickid) {
       androidBtn.href = `https://singingfiles.com/show.php?l=0&u=1159972&id=68776&subid=${clickid}`;
     }
   </script>
 
-  <div id="comments"></div>
-
+  <!-- ⏳ Countdown -->
   <script>
-    // Countdown timer
     let time = 300;
     const timer = document.getElementById('timer');
     setInterval(() => {
@@ -101,8 +91,11 @@
       timer.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
       if (time > 0) time--;
     }, 1000);
+  </script>
 
-    // Fake comments with photos
+  <!-- 💬 Fake comments section -->
+  <div id="comments"></div>
+  <script>
     const commentsData = [
       { name: "Jessica M.", text: "Wow I actually got $800 shopping reward! Just confirmed my email 🎉", img: "https://randomuser.me/api/portraits/women/44.jpg" },
       { name: "Robert D.", text: "This is real! I used my Android and it worked instantly.", img: "https://randomuser.me/api/portraits/men/46.jpg" },
@@ -113,16 +106,7 @@
       { name: "Laura G.", text: "Literally free $800 – can't believe it 😍", img: "https://randomuser.me/api/portraits/women/36.jpg" },
       { name: "Mark L.", text: "Worked without any issue!", img: "https://randomuser.me/api/portraits/men/25.jpg" },
       { name: "Anna B.", text: "Best offer I've seen this year!", img: "https://randomuser.me/api/portraits/women/88.jpg" },
-      { name: "James T.", text: "It redirected me, I completed it, got $800!", img: "https://randomuser.me/api/portraits/men/58.jpg" },
-      { name: "Nina H.", text: "Fast and real! 🎯", img: "https://randomuser.me/api/portraits/women/29.jpg" },
-      { name: "Chris F.", text: "No tricks – it really pays.", img: "https://randomuser.me/api/portraits/men/60.jpg" },
-      { name: "Olivia K.", text: "Shared with my cousin. Both got paid!", img: "https://randomuser.me/api/portraits/women/40.jpg" },
-      { name: "Liam Z.", text: "Used USA VPN and it worked 🔥", img: "https://randomuser.me/api/portraits/men/42.jpg" },
-      { name: "Rachel S.", text: "Too good! Instant result 💸", img: "https://randomuser.me/api/portraits/women/22.jpg" },
-      { name: "Tom E.", text: "Thanks for sharing this offer!", img: "https://randomuser.me/api/portraits/men/18.jpg" },
-      { name: "Grace M.", text: "Confirmed email, done ✅", img: "https://randomuser.me/api/portraits/women/13.jpg" },
-      { name: "Leo V.", text: "Works best on Android", img: "https://randomuser.me/api/portraits/men/66.jpg" },
-      { name: "Mia N.", text: "Recommended to everyone 💯", img: "https://randomuser.me/api/portraits/women/59.jpg" },
+      { name: "James T.", text: "It redirected me, I completed it, got $800!", img: "https://randomuser.me/api/portraits/men/58.jpg" }
     ];
 
     const commentsContainer = document.getElementById('comments');
